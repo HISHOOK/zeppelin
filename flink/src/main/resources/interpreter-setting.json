@@ -3,6 +3,7 @@
     "group": "flink",
     "name": "flink",
     "className": "org.apache.zeppelin.flink.FlinkInterpreter",
+    "defaultInterpreter": true,
     "properties": {
       "flink.execution.mode": {
         "envName": null,
@@ -39,13 +40,6 @@
         "description": "Memory for TaskManager (mb)",
         "type": "number"
       },
-      "flink.tm.num": {
-        "envName": null,
-        "propertyName": null,
-        "defaultValue": "2",
-        "description": "Number of TaskManager",
-        "type": "number"
-      },
       "flink.tm.slot": {
         "envName": null,
         "propertyName": null,
@@ -67,11 +61,18 @@
         "description": "yarn queue name",
         "type": "string"
       },
-      "flink.yarn.jars": {
+      "flink.execution.jars": {
         "envName": null,
         "propertyName": null,
         "defaultValue": "",
-        "description": "additional user jars (comma separated)",
+        "description": "additional user jars (comma separated), e.g. flink udf jars",
+        "type": "string"
+      },
+      "flink.execution.packages": {
+        "envName": null,
+        "propertyName": null,
+        "defaultValue": "",
+        "description": "additional user packages (comma separated), e.g. flink connector packages",
         "type": "string"
       },
       "zeppelin.flink.scala.color": {
@@ -100,13 +101,6 @@
         "propertyName": "zeppelin.flink.maxResult",
         "defaultValue": "1000",
         "description": "max number of row returned by sql interpreter.",
-        "type": "number"
-      },
-      "zeppelin.flink.planner": {
-        "envName": "zeppelin.flink.planner",
-        "propertyName": "zeppelin.flink.planner",
-        "defaultValue": "blink",
-        "description": "planner or flink table api, blink or flink",
         "type": "number"
       },
       "zeppelin.pyflink.python": {
@@ -160,7 +154,9 @@
     },
     "editor": {
       "language": "python",
-      "editOnDblClick": false
+      "editOnDblClick": false,
+      "completionKey": "TAB",
+      "completionSupport": true
     }
   },
 
@@ -173,7 +169,9 @@
     },
     "editor": {
       "language": "python",
-      "editOnDblClick": false
+      "editOnDblClick": false,
+      "completionKey": "TAB",
+      "completionSupport": true
     }
   }
 ]
