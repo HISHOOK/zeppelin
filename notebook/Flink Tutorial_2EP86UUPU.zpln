@@ -1,0 +1,417 @@
+{
+  "paragraphs": [
+    {
+      "text": "%flink.conf\n\nFLINK_HOME /Users/jzhang/Java/lib/flink-1.9.0",
+      "user": "anonymous",
+      "dateUpdated": "2019-09-26 17:15:49.285",
+      "config": {
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/text",
+        "fontSize": 9.0,
+        "runOnSelectionChange": true,
+        "title": false,
+        "checkEmpty": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1569487114651_748066829",
+      "id": "paragraph_1562567347434_-2047699644",
+      "dateCreated": "2019-09-26 16:38:34.651",
+      "dateStarted": "2019-09-26 17:15:49.295",
+      "dateFinished": "2019-09-26 17:15:49.317",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%flink\n\nval data \u003d senv.fromElements(\"hello world\", \"hello flink\", \"hello hadoop\")\ndata.flatMap(line \u003d\u003e line.split(\"\\\\s\"))\n  .map(w \u003d\u003e (w, 1))\n  .keyBy(0)\n  .sum(1)\n  .print\n\nsenv.execute()",
+      "user": "anonymous",
+      "dateUpdated": "2019-09-26 17:15:50.952",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "runOnSelectionChange": true,
+        "title": false,
+        "checkEmpty": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdata\u001b[0m: \u001b[1m\u001b[32morg.apache.flink.streaming.api.scala.DataStream[String]\u001b[0m \u003d org.apache.flink.streaming.api.scala.DataStream@4651ff4d\n\u001b[1m\u001b[34mres0\u001b[0m: \u001b[1m\u001b[32morg.apache.flink.streaming.api.datastream.DataStreamSink[(String, Int)]\u001b[0m \u003d org.apache.flink.streaming.api.datastream.DataStreamSink@7b5eadda\n(hello,1)\n(world,1)\n(hello,2)\n(flink,1)\n(hello,3)\n(hadoop,1)\n\u001b[1m\u001b[34mres1\u001b[0m: \u001b[1m\u001b[32morg.apache.flink.api.common.JobExecutionResult\u001b[0m \u003d org.apache.flink.api.common.JobExecutionResult@4988855a\n"
+          }
+        ]
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1569487114652_-1131965547",
+      "id": "paragraph_1562567584970_-321834792",
+      "dateCreated": "2019-09-26 16:38:34.652",
+      "dateStarted": "2019-09-26 17:15:50.965",
+      "dateFinished": "2019-09-26 17:16:11.200",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%flink.bsql\n\nshow catalogs;\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-09-26 17:19:02.183",
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "runOnSelectionChange": true,
+        "title": false,
+        "checkEmpty": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "catalog": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "catalog\ndefault_catalog\n"
+          }
+        ]
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1569487114652_-2061807842",
+      "id": "paragraph_1562567589112_1605376729",
+      "dateCreated": "2019-09-26 16:38:34.652",
+      "dateStarted": "2019-09-26 17:18:54.822",
+      "dateFinished": "2019-09-26 17:18:55.190",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%flink.bsql\n\nshow tables",
+      "user": "anonymous",
+      "dateUpdated": "2019-09-26 17:19:07.767",
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "runOnSelectionChange": true,
+        "title": false,
+        "checkEmpty": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "table": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "table\na\nb\nt1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1569487114652_-1627748177",
+      "id": "paragraph_1562572149898_-1412782531",
+      "dateCreated": "2019-09-26 16:38:34.652",
+      "status": "READY"
+    },
+    {
+      "text": "%flink.bsql\n\nselect tt, count(1) from a group by tt",
+      "user": "anonymous",
+      "dateUpdated": "2019-09-26 17:15:11.579",
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "runOnSelectionChange": true,
+        "title": false,
+        "checkEmpty": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "tt": "string",
+                      "EXPR$1": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "tt",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "EXPR$1",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "tt\tEXPR$1\nhello\t3\nworld\t1\nflink\t1\nhadoop\t1\n"
+          },
+          {
+            "type": "TEXT",
+            "data": ""
+          }
+        ]
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1569487114653_202175391",
+      "id": "paragraph_1562572157097_-159000164",
+      "dateCreated": "2019-09-26 16:38:34.653",
+      "status": "READY"
+    },
+    {
+      "text": "%flink.bsql\n\nselect * from a;",
+      "user": "anonymous",
+      "dateUpdated": "2019-09-26 16:38:34.653",
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "runOnSelectionChange": true,
+        "title": false,
+        "checkEmpty": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "tt": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "tt\nhello\nworld\nhello\nflink\nhello\nhadoop\n"
+          },
+          {
+            "type": "TEXT",
+            "data": ""
+          }
+        ]
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1569487114653_-432880457",
+      "id": "paragraph_1567832933934_1579983522",
+      "dateCreated": "2019-09-26 16:38:34.653",
+      "status": "READY"
+    },
+    {
+      "text": "%flink.ipyflink\n",
+      "user": "anonymous",
+      "dateUpdated": "2019-09-26 16:38:34.653",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1569487114653_1778038220",
+      "id": "paragraph_1567747350886_116996495",
+      "dateCreated": "2019-09-26 16:38:34.653",
+      "status": "READY"
+    }
+  ],
+  "name": "Flink Tutorial",
+  "id": "2EP86UUPU",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-SNAPSHOT",
+  "permissions": {},
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {},
+  "path": "/Flink Tutorial"
+}

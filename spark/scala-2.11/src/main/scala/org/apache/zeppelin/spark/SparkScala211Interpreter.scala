@@ -26,7 +26,7 @@ import org.apache.spark.SparkConf
 import org.apache.spark.repl.SparkILoop
 import org.apache.zeppelin.interpreter.thrift.InterpreterCompletion
 import org.apache.zeppelin.interpreter.util.InterpreterOutputStream
-import org.apache.zeppelin.interpreter.{InterpreterContext, InterpreterGroup}
+import org.apache.zeppelin.interpreter.{InterpreterContext, InterpreterGroup, InterpreterResult}
 import org.slf4j.LoggerFactory
 import org.slf4j.Logger
 
@@ -95,6 +95,44 @@ class SparkScala211Interpreter(override val conf: SparkConf,
     createZeppelinContext()
   }
 
+  override def interpret(code: String, context: InterpreterContext): InterpreterResult = {
+    if (context != null) {
+      interpreterOutput.setInterpreterOutput(context.out)
+      context.out.clear()
+    }
+
+    Console.withOut(if (context != null) context.out else Console.out) {
+      interpreterOutput.ignoreLeadingNewLinesFromScalaReporter()
+      // add print("") at the end in case the last line is comment which lead to INCOMPLETE
+      val lines = code.split("\\n") ++ List("print(\"\")")
+      var incompleteCode = ""
+      var lastStatus: InterpreterResult.Code = null
+      for (line <- lines if !line.trim.isEmpty) {
+        val nextLine = if (incompleteCode != "") {
+          incompleteCode + "\n" + line
+        } else {
+          line
+        }
+        scalaInterpret(nextLine) match {
+          case scala.tools.nsc.interpreter.IR.Success =>
+            // continue the next line
+            incompleteCode = ""
+            lastStatus = InterpreterResult.Code.SUCCESS
+          case error@scala.tools.nsc.interpreter.IR.Error =>
+            return new InterpreterResult(InterpreterResult.Code.ERROR)
+          case scala.tools.nsc.interpreter.IR.Incomplete =>
+            // put this line into inCompleteCode for the next execution.
+            incompleteCode = incompleteCode + "\n" + line
+            lastStatus = InterpreterResult.Code.INCOMPLETE
+        }
+      }
+      // flush all output before returning result to frontend
+      Console.flush()
+      interpreterOutput.setInterpreterOutput(null)
+      return new InterpreterResult(lastStatus)
+    }
+  }
+
   protected override def completion(buf: String,
                                     cursor: Int,
                                     context: InterpreterContext): java.util.List[InterpreterCompletion] = {
@@ -119,8 +157,12 @@ class SparkScala211Interpreter(override val conf: SparkConf,
     }
   }
 
-  def scalaInterpret(code: String): scala.tools.nsc.interpreter.IR.Result =
-    sparkILoop.interpret(code)
+  def scalaInterpret(code: String, quite: Boolean = false): scala.tools.nsc.interpreter.IR.Result =
+    if (quite) {
+      sparkILoop.quietRun(code)
+    } else {
+      sparkILoop.interpret(code)
+    }
 
 }
 

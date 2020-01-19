@@ -98,8 +98,9 @@ class SparkScala210Interpreter(override val conf: SparkConf,
     scala.collection.JavaConversions.seqAsJavaList(completions)
   }
 
-  def scalaInterpret(code: String): scala.tools.nsc.interpreter.IR.Result =
+  def scalaInterpret(code: String, quite: Boolean = false): scala.tools.nsc.interpreter.IR.Result =
     sparkILoop.interpret(code)
+
 
   protected def bind(name: String, tpe: String, value: Object, modifier: List[String]): Unit = {
     sparkILoop.beQuietDuring {

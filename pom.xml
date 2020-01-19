@@ -375,31 +375,31 @@
         </configuration>
       </plugin>
 
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>flatten-maven-plugin</artifactId>
-        <version>1.0.0</version>
-        <configuration>
-          <flattenMode>ossrh</flattenMode>
-          <updatePomFile>true</updatePomFile>
-        </configuration>
-        <executions>
-          <execution>
-            <id>flatten</id>
-            <phase>process-resources</phase>
-            <goals>
-              <goal>flatten</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>flatten.clean</id>
-            <phase>clean</phase>
-            <goals>
-              <goal>clean</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
+<!--      <plugin>-->
+<!--        <groupId>org.codehaus.mojo</groupId>-->
+<!--        <artifactId>flatten-maven-plugin</artifactId>-->
+<!--        <version>1.0.0</version>-->
+<!--        <configuration>-->
+<!--          <flattenMode>ossrh</flattenMode>-->
+<!--          <updatePomFile>true</updatePomFile>-->
+<!--        </configuration>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <id>flatten</id>-->
+<!--            <phase>process-resources</phase>-->
+<!--            <goals>-->
+<!--              <goal>flatten</goal>-->
+<!--            </goals>-->
+<!--          </execution>-->
+<!--          <execution>-->
+<!--            <id>flatten.clean</id>-->
+<!--            <phase>clean</phase>-->
+<!--            <goals>-->
+<!--              <goal>clean</goal>-->
+<!--            </goals>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--      </plugin>-->
 
       <!-- (TODO zjffdu disable it temporary to make CI pass)Test coverage plugin -->
 
@@ -477,23 +477,23 @@
         </configuration>
       </plugin>
 
-      <plugin>
-        <artifactId>maven-remote-resources-plugin</artifactId>
-        <version>${plugin.remote.resource.version}</version>
-        <executions>
-          <execution>
-            <id>process-remote-resources</id>
-            <goals>
-              <goal>process</goal>
-            </goals>
-            <configuration>
-              <resourceBundles>
-                <resourceBundle>org.apache:apache-jar-resource-bundle:1.0</resourceBundle>
-              </resourceBundles>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+<!--      <plugin>-->
+<!--        <artifactId>maven-remote-resources-plugin</artifactId>-->
+<!--        <version>${plugin.remote.resource.version}</version>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <id>process-remote-resources</id>-->
+<!--            <goals>-->
+<!--              <goal>process</goal>-->
+<!--            </goals>-->
+<!--            <configuration>-->
+<!--              <resourceBundles>-->
+<!--                <resourceBundle>org.apache:apache-jar-resource-bundle:1.0</resourceBundle>-->
+<!--              </resourceBundles>-->
+<!--            </configuration>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--      </plugin>-->
 
       <plugin>
         <artifactId>maven-scm-plugin</artifactId>

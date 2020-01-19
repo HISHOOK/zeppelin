@@ -145,7 +145,7 @@ abstract class BaseSparkScalaInterpreter(val conf: SparkConf,
   protected def interpret(code: String): InterpreterResult =
     interpret(code, InterpreterContext.get())
 
-  protected def scalaInterpret(code: String): scala.tools.nsc.interpreter.IR.Result
+  protected def scalaInterpret(code: String, quite: Boolean = false): scala.tools.nsc.interpreter.IR.Result
 
   protected def getProgress(jobGroup: String, context: InterpreterContext): Int = {
     JobProgressUtil.progress(sc, jobGroup)
